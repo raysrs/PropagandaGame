@@ -5,7 +5,7 @@ function Home() {
       <div className='m-4 font-serif'>
         <div className='text-right bg-gray-100'>
           <Link to='/about' className='inline-block px-4 py-2 text-2xl bg-gray-200'>
-            About Us
+            About Us!
           </Link>
         </div>
         <div className='py-4 text-center bg-gray-100'>
