@@ -14,10 +14,11 @@ function Home() {
           </h1>
         </div>
         <div className='py-4 text-center bg-gray-100'>
-          <button className='inline-block px-8 py-2 w-sm text-4xl tracking-wide bg-gray-200 rounded-lg
-                    hover:bg-pink-200'>
+          <Link
+            to="/game"
+            className='inline-block px-8 py-2 w-sm text-4xl tracking-wide bg-gray-200 rounded-lg hover:bg-pink-200'>
             Click here to<br />start playing!
-          </button>
+          </Link>
         </div>
         <div className='py-4 text-center bg-gray-100'>
           <Link

@@ -1,4 +1,4 @@
-import BadgeandBlurb from "../functions/BadgeandBlurb";
+import BadgeandBlurb from "./BadgeandBlurb";
 
 function Badges() {
   return (
