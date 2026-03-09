@@ -1,6 +1,8 @@
 function Question() {
   return(
-    <h1>Question</h1>
+    <div>
+      Question
+    </div>
   )
 }
 
