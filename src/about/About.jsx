@@ -4,8 +4,8 @@ import placeholder from "./placeholder.jpg";
 
 function About() {
   return (
-    <div className="bg-blue-400">
-      <div className="text-4xl font-bold text-center bg-blue-600">About Us!</div>
+    <div className="bg-blue-400 p-4">
+      <div className="text-4xl font-bold text-center rounded-lg bg-blue-600">About Us!</div>
       <div className="flex items-stretch">
         <AboutCard
         name="Zoe"
@@ -19,7 +19,10 @@ function About() {
         blurb="Hello">
         </AboutCard>
       </div>
-      
+      <div className="bg-pink-300 p-4 m-4 rounded-lg">
+        <div className="text-center text-2xl font-semibold">Our Mission</div>
+        <div className="text-center">Blah, blah, blah.</div>
+      </div>
       
     
     
