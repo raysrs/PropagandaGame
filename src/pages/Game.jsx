@@ -1,24 +1,34 @@
 import { useState } from "react";
-import {Lesson, Question, Reaction, LevelResults} from "../components/gamePages";
-import Sidebar from "../components/gameSidebar";
-import Header from "../components/Header";
-
+import { Link } from "react-router-dom";
+import { Lesson, Question, Reaction, LevelResults } from "../components/gamePages";
+import placeholder from "../assets/placeholder.jpg";
 
 function Game() {
-  const [page, setPage] = useState(0);
+  const [index, setIndex] = useState({level:0, page:0});
   const [likes, setLikes] = useState(0);
-  const nextPage = () => setPage(page + 1);
-  const addLikes = (num) => setLikes(likes + num)
-
+  
   return(
-    <div className="h-dvh">
-      <Header text="Level 2 - Linguistic Cliffhangers" hasExitButton={false} />
-      <div className="flex">
-        <Sidebar likes={likes} className="flex-initial" />
-        <div className="flex-auto border-2">
-          {[<Lesson />, <Question />, <Reaction />, <LevelResults />][page]}
+    <div className="flex">
+      <Sidebar likes={likes} />
+      <div className="flex-auto flex flex-col">
+        <h1 className="p-1 border-2">Level 2 - Linguistic Cliffhangers</h1>
+        <div className="flex-auto p-1 border-2">
+          {[<Lesson />, <Question />, <Reaction />, <LevelResults />][index.page]}
         </div>
       </div>
+    </div>
+  );
+};
+
+function Sidebar({likes}) {
+  return(
+    <div className="w-30 h-dvh p-2 border-2">
+      <img src={placeholder} alt="Poppy Ganda"></img>
+      <div> Likes </div>
+      <div>{likes}</div>
+      <Link to="/" className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200">
+        Exit
+      </Link>
     </div>
   );
 };
