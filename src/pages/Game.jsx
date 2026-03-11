@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Lesson, Question, Reaction, LevelResults } from "../components/gamePages";
 import placeholder from "../assets/placeholder.jpg";
+import levels from "../levels.json";
 
 function Game() {
   const [index, setIndex] = useState({level:0, page:0});
@@ -11,7 +12,7 @@ function Game() {
     <div className="flex">
       <Sidebar likes={likes} />
       <div className="flex-auto flex flex-col">
-        <h1 className="p-1 border-2">Level 2 - Linguistic Cliffhangers</h1>
+        <h1 className="p-1 border-2">{levels[index.level].title}</h1>
         <div className="flex-auto p-1 border-2">
           {[<Lesson />, <Question />, <Reaction />, <LevelResults />][index.page]}
         </div>
