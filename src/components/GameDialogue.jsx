@@ -1,5 +1,4 @@
-function GameDialogue(lines){
-  if (lines == []) return(<></>)
+function GameDialogue({lines}){
   return(
     <ul>
       {lines.map((line) => 
@@ -11,7 +10,7 @@ function GameDialogue(lines){
   )
 }
 
-function SpeechBubble(type, text){
+function SpeechBubble({type, text}){
   return(
     <div className={(type == "Poppy") ? "bg-blue-500" : "bg-yellow-500"}>
       {type}: {text}
@@ -19,7 +18,7 @@ function SpeechBubble(type, text){
   )
 }
 
-function Question(options, responses){
+function Question({options, responses}){
   const [answer, setAnswer] = useState(-1)
 
   if (answer == -1){
@@ -42,8 +41,7 @@ function Question(options, responses){
         <SpeechBubble type="Patricia" text={options[answer]} />
         <SpeechBubble type="Poppy" text={responses[0]} />
       </>
-    )
-    
+    ) 
   }
 }
 
