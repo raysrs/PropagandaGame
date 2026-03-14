@@ -11,7 +11,8 @@ function Game() {
   const level = levels[index.level];
 
   function nextLine() {
-    let actionIndex = index.action+1
+    let actionIndex = index.action
+    let rl = renderedLines
     
     //integer actions are interpereted as jump commands
     if (Number.isInteger(level.actions[actionIndex])){
@@ -20,23 +21,24 @@ function Game() {
 
     //"clear" action clears list of rendered lines
     if (level.actions[actionIndex] == "clear"){
-      setRenderedLines([]);
+      rl = [];
       actionIndex++;
     };
 
     //all other actions are lines and can be rendered
-    setRenderedLines(renderedLines.concat({id:index.line, type:level.actions[actionIndex], text:level.lines[index.line]}))
-    setIndex({...index, line:index.line+1, action:actionIndex})
+    rl.push({id:index.line, type:level.actions[actionIndex], text:level.lines[index.line]});
+    setRenderedLines(rl);
+    setIndex({...index, line:index.line+1, action:actionIndex+1});
   };
 
   function seeResults(){
-    setRenderedLines([])
-    setIndex({...index, line:index.line+1})
+    setRenderedLines([]);
+    setIndex({...index, line:index.line+1});
   };
 
   function nextLevel(){
-    setIndex({level:index.level+1, line:0, action:0})
-  }
+    setIndex({level:index.level+1, line:0, action:0});
+  };
 
   //returns results page if there are no more lines in lesson
   if (index.line == level.lines.length) {
