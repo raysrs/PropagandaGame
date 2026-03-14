@@ -25,22 +25,25 @@ function Question({text}){
 
   if (answer == -1){
     //executed before answer chosen
-    console.log(str(text.options));
     return(
-      <ul>
-        {text.options.map((option, index) =>
-          <li key={index}>
-            <button onClick={setAnswer(index)}>
-              {['A', 'B', 'C'][index]}: {option}
-            </button>
-          </li>
-        )}
-      </ul>
+      <div>
+        <ul>
+          <li><SpeechBubble type="Poppy" text={text.prompt} /></li>
+          {text.options.map((option, index) =>
+            <li key={index}>
+              <button onClick={() => setAnswer(index)}>
+                {['A', 'B', 'C'][index]}: {option}
+              </button>
+            </li>
+          )}
+        </ul>
+      </div>
     )
   } else {
     //executed after answer chosen
     return(
       <>
+        <SpeechBubble type="Poppy" text={text.prompt} />
         <SpeechBubble type="Patricia" text={text.options[answer]} />
         <SpeechBubble type="Poppy" text={text.responses[0]} />
       </>
