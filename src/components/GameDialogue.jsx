@@ -14,7 +14,7 @@ function GameDialogue({lines, addLikes}){
 
 function SpeechBubble({type, text}){
   return(
-    <div className={(type == "Poppy") ? "bg-blue-500 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]" : "bg-amber-500 rounded-t-xl rounded-bl-xl mx-8 w-[500px] p-2 justify-self-end"}>
+    <div className={(type == "Poppy") ? "bg-blue-500 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]" : "bg-amber-500 rounded-t-xl rounded-bl-xl mx-8 w-[500px] p-2 float-right"}>
       {type}: {text}
     </div>
   )
