@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function GameDialogue({lines}){
   return(
-    <ul>
+    <ul className="flex flex-col">
       {lines.map((line) => 
         <li key={line.id}>
           {line.type == "question" ? <Question text={line.text}/> : <SpeechBubble type={line.type} text={line.text}/> }
@@ -14,7 +14,7 @@ function GameDialogue({lines}){
 
 function SpeechBubble({type, text}){
   return(
-    <div className={(type == "Poppy") ? "bg-blue-500" : "bg-yellow-500"}>
+    <div className={(type == "Poppy") ? "bg-blue-500 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]" : "bg-amber-500 rounded-t-xl rounded-bl-xl mx-8 w-[500px] p-2 justify-self-end"}>
       {type}: {text}
     </div>
   )
