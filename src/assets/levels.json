@@ -14,7 +14,6 @@
 	{
 		"title": "Level 1 - Noun Subjectivity + Collocations",
 		"actions": ["Poppy", "clear", "question", 1],
-		"answer": 274,
 		"lines": [
 			"Our first topic is noun subjectivity and collocations. Nouns can convey an opinion using their collocations (the associations people have with words). In contrast, objective nouns are more factual and simply describe something without conveying the opinion of the speaker. For example, “brawl” is a subjective noun whereas “argument” is more objective. A person's collocations with a word can be shifted through repetition.",
 			{
@@ -24,6 +23,7 @@
 					"I'm Patricia Politician, and I'm fighting to be the leader of this institution.",
 					"My moniker is Patricia Politician. I am campaigning to be the prime minister of the student parliament"
 				],
+				"answer":1,
 				"responses":[
 					"Nice work! You're a natural!",
 					"Oops! The right answer is B because it uses subjective words like “fighting,” “leader,” and “institution.”"
@@ -36,6 +36,7 @@
 					"Brandon Borsht is my opponent in this electoral race.",
 					"Brandon Borsht is my arch-enemy."
 				],
+				"answer":0,
 				"responses":[
 					"That's right! We are going to BRING HIM DOWN!!!",
 					"Brandon Borsht is our arch-enemy. We are going to crush his bones and put them in our oatmeal for breakfast!"
@@ -48,6 +49,7 @@
 					"I will pave the way to welcome kitties into our school every Wednesday.",
 					"I will bring cats to school once a week."
 				],
+				"answer":0,
 				"responses":[
 					"Great job! I love kitty-cats.",
 					"Not quite. You need to make the word for cats less neutral with the word kitty."

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function GameDialogue({lines}){
+function GameDialogue({lines, addLikes}){
   return(
     <ul>
       {lines.map((line) => 
         <li key={line.id}>
-          {line.type == "question" ? <Question text={line.text}/> : <SpeechBubble type={line.type} text={line.text}/> }
+          {line.type == "question" ? <Question text={line.text} addLikes={addLikes}/> : <SpeechBubble type={line.type} text={line.text}/> }
         </li>
       )}
     </ul>
@@ -20,19 +20,27 @@ function SpeechBubble({type, text}){
   )
 }
 
-function Question({text}){
-  const [answer, setAnswer] = useState(-1)
+function Question({text, addLikes}){
+  const [index, setIndex] = useState({choice:-1, response:-1})
+  const handleClick = (x) => {
+    if(x == text.answer){
+      setIndex({choice:x, response:0});
+      addLikes(Math.floor(Math.random()*5+50));
+    } else {
+      setIndex({choice:x, response:1});
+    }
+  }
 
-  if (answer == -1){
+  if (index.choice == -1){
     //executed before answer chosen
     return(
       <div>
         <ul>
           <li><SpeechBubble type="Poppy" text={text.prompt} /></li>
-          {text.options.map((option, index) =>
-            <li key={index}>
-              <button onClick={() => setAnswer(index)}>
-                {['A', 'B', 'C'][index]}: {option}
+          {text.options.map((option, i) =>
+            <li key={i}>
+              <button onClick={() => handleClick(i)}>
+                {['A', 'B', 'C'][i]}: {option}
               </button>
             </li>
           )}
@@ -44,8 +52,8 @@ function Question({text}){
     return(
       <>
         <SpeechBubble type="Poppy" text={text.prompt} />
-        <SpeechBubble type="Patricia" text={text.options[answer]} />
-        <SpeechBubble type="Poppy" text={text.responses[0]} />
+        <SpeechBubble type="Patricia" text={text.options[index.choice]} />
+        <SpeechBubble type="Poppy" text={text.responses[index.response]} />
       </>
     ) 
   }
