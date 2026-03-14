@@ -13,21 +13,19 @@ function Game() {
   function nextLine() {
     let actionIndex = index.action+1
     
-    let line = level.lines[index.line]
-    
     //integer actions are interpereted as jump commands
     if (Number.isInteger(level.actions[actionIndex])){
       actionIndex = level.actions[actionIndex];
     };
 
     //"clear" action clears list of rendered lines
-    if (level.actions[index.action] == "clear"){
+    if (level.actions[actionIndex] == "clear"){
       setRenderedLines([]);
       actionIndex++;
     };
 
     //all other actions are lines and can be rendered
-    setRenderedLines(renderedLines.concat({id:index.line, type:level.actions[index.action], text:line}))
+    setRenderedLines(renderedLines.concat({id:index.line, type:level.actions[actionIndex], text:level.lines[index.line]}))
     setIndex({...index, line:index.line+1, action:actionIndex})
   };
 
@@ -35,6 +33,10 @@ function Game() {
     setRenderedLines([])
     setIndex({...index, line:index.line+1})
   };
+
+  function nextLevel(){
+    setIndex({level:index.level+1, line:0, action:0})
+  }
 
   //returns results page if there are no more lines in lesson
   if (index.line == level.lines.length) {
@@ -46,6 +48,9 @@ function Game() {
             likes={likes}
           />
         </div>
+        <div className="absolute bottom-4 right-4">
+          <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={nextLevel}> next level </button>
+        </div>
       </div>
     );
   };
@@ -53,7 +58,9 @@ function Game() {
   //default return
   return(
     <div className="flex">
-      <GameSidebar likes={likes} />
+      <div className="flex-none">
+        <GameSidebar likes={likes} />
+      </div>
 
       <div className="flex-auto flex flex-col">
         <h1 className="p-1 border-2">{level.title}</h1>
@@ -61,7 +68,7 @@ function Game() {
           <GameDialogue lines={renderedLines} />
         </div>
         <div className="absolute bottom-4 right-4">
-          {(index.line < level.lines.length)
+          {(index.line+1 < level.lines.length)
             ? <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={nextLine}> next </button>
             : <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={seeResults}> see results </button>
           }
