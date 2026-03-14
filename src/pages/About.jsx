@@ -1,6 +1,6 @@
-import AboutCard from "./AboutCard";
-import zoe from "./zoe.jpg";
-import placeholder from "./placeholder.jpg";
+import AboutCard from "../components/AboutCard";
+import zoe from "../assets/zoe.jpg";
+import placeholder from "../assets/placeholder.jpg";
 
 function About() {
   return (
