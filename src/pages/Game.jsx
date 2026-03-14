@@ -2,7 +2,7 @@ import { useState } from "react";
 import GameDialogue from "../components/GameDialogue"
 import GameSidebar from "../components/GameSidebar"
 import LevelResults from "../components/LevelResults";
-import levels from "../levels.json";
+import levels from "../assets/levels.json";
 
 function Game() {
   const [index, setIndex] = useState({level:0, line:0, action:0});
