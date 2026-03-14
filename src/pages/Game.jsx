@@ -10,6 +10,8 @@ function Game() {
   const [likes, setLikes] = useState(0);
   const level = levels[index.level];
 
+  const addLikes = (l) => setLikes(likes+l)
+
   function nextLine() {
     let actionIndex = index.action
     let rl = renderedLines
@@ -67,7 +69,7 @@ function Game() {
       <div className="flex-auto flex flex-col">
         <h1 className="p-1 border-2">{level.title}</h1>
         <div className="flex-auto p-1 border-2">
-          <GameDialogue lines={renderedLines} />
+          <GameDialogue lines={renderedLines} addLikes={addLikes} />
         </div>
         <div className="absolute bottom-4 right-4">
           {(index.line+1 < level.lines.length)
