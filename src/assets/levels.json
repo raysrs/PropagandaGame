@@ -63,8 +63,10 @@
 		"actions": ["Poppy", "clear", "Poppy", "question", 1],
 		"lines":[
 			"It’s about time we start using Linguistic Cliffhangers. Linguistic Cliffhangers are phrases that are incomplete, leaving the audience to fill in the blank with their own biases. For example, the slogan “Make America Great Again” does not specify when or in what way America used to be great. Instead, it leaves the audience to fill in their values. The technique makes the speaker seem less biased while taking advantage of people’s preexisting prejudices.",
-			"Ok, now to choose this round’s first social media post!",
 			{
+				"prompt":[
+					"Ok, now to choose this round’s first social media post!"
+				],
 				"options":[
 					"I will make the school 20% cleaner.",
 					"I will make the school bathrooms cleaner than they are now.",
@@ -75,8 +77,10 @@
 					"I’m not sure we can hold true to this, we don’t want a scandal on our hands! Option A gives us wiggle room to get out of any promises."
 				]
 			},
-			"Next question:",
 			{
+				"prompt":[
+					"Next question:"
+				],
 				"options":[
 					"I have better grades than my opponents.",
 					"Brandon Borscht’s straight B’s are puny in comparison to my straight A’s.",
@@ -87,8 +91,10 @@
 					"Let’s be honest here. We both know that Brandon is a star academic. And your grades are, well… You’re prioritizing this election! Anyways, we don’t want to be specific enough that we could be fact-checked. Also, leaving out how you’re more qualified will get your followers to make up reasons why you are more qualified. For some of them, that might be good grades, for others, it might be policy experience. You’re not lying, you’re planting the seeds of falsehood!"
 				]
 			},
-			"Ok, let’s finish it out strong! Here are your last options:",
 			{
+				"prompt":[
+					"Ok, let’s finish it out strong! Here are your last options:"
+			],
 				"options":[
 					"If you vote for me, I will clean the bathrooms and bring cats into the school!",
 					"Vote Patricia to make your dreams come true!",
@@ -109,8 +115,10 @@
 			"I think you’re ready to learn about the Language of Opposites.",
 			"Oooh. Ominous.",
 			"And powerful! Politicians use the language of opposites to increase the believability and perceived danger of their chosen enemy. Surprisingly, contradicting statements make the speaker seem more trustworthy, as it appears that they are simply telling their audience what they know without twisting the information for their gains. Additionally, using opposites to describe an enemy can make them seem more dangerous and subhuman. If a group fits several differing negative descriptions, their evil abilities must be incomprehensible.",
-			"Alright, let’s give this a shot! You’ve already posted something saying that Brandon Borscht is smelly and disgusting, what should you post next?",
 			{
+				"prompt":[
+					"Alright, let’s give this a shot! You’ve already posted something saying that Brandon Borscht is smelly and disgusting, what should you post next?"
+				],
 				"options":[
 					"Did you see how greasy Brandon’s hair was today? GROSS!",
 					"Do you really want someone as stinky as Brandon representing you as student council president?",
@@ -121,8 +129,10 @@
 					"It’s tempting to post stuff about how gross Brandon is, but if you keep pushing a certain message, people will become aware of the fact that you’re trying to push them into believing something. Option C is much more subtle."
 				]
 			},
-			"On to the next one! Remember, you’ve already posted something saying that Borscht-supporters are evil masterminds trying to take over the school government.",
 			{
+				"prompt":[
+					"On to the next one! Remember, you’ve already posted something saying that Borscht-supporters are evil masterminds trying to take over the school government."
+				],
 				"options":[
 					"Borscht-supporters are tricking the principal into rigging the elections!",
 					"School elections should ban students who are failing all their classes from voting. That would root out the Borscht-supporters for sure!",
@@ -133,8 +143,11 @@
 					"Remember: we want two contradicting statements!"
 				]
 			},
-			"Alright, last one! This morning, you had a post saying that Brandon Borscht was too lazy to even do his own homework.",
+			
 			{
+				"prompt":[
+					"Alright, last one! This morning, you had a post saying that Brandon Borscht was too lazy to even do his own homework."
+				],
 				"options":[
 					"If Borscht wins, he’ll make the teachers give more homework!",
 					"If Borscht wins, he’ll be too lazy to do anything.",
@@ -153,8 +166,10 @@
 		"action":["Poppy", "clear", "Poppy", "question", 1],
 		"lines":[
 			"When disposition is implied, this means that the speaker is implying that a certain person or group may do something. However, the likelihood of the subject actually completing the action is not specified. For example, the phrase “sharks attack people” implies that sharks are disposed to attack humans, but it is up to the audience to decide whether sharks actively hunt down people or whether it is something they are capable of but rarely do.",
-			"Ok, I’m ready to do some implying! Which one will you post?",
 			{
+				"prompt":[
+					"Ok, I’m ready to do some implying! Which one will you post?"
+				],
 				"options":[
 					"Borschts start fights sometimes.",
 					"Borschts start fights.",
@@ -165,8 +180,10 @@
 					" Not quite. The vagueness in second statement leaves the statement up to audience interpretation. Kind of like Linguistic Cliffhangers!"
 				]
 			},
-			"Next post:",
 			{
+				"prompt":[
+					"Next post:"
+				],
 				"options":[
 					"Brandon sweats!",
 					"Brandon is sometimes sweaty after PE.",
@@ -177,8 +194,10 @@
 					" Option 2 is boring, and option 3 is not true (I don’t know what kind of deodorant he’s using, but it’s working!), Option 1 has the best of both -- scandalous, but not blatantly untrue."
 				]
 			},
-			"Last one for this method!",
 			{
+				"prompt":[
+					"Last one for this method!"
+				],
 				"options":[
 					"Borscht-supporters never show up to school.",
 					"Borscht-supporters skip class.",
@@ -199,8 +218,10 @@
 			"Alright, this is the final level. Are you ready?",
 			"I am SO ready!!",
 			"Essentialist placeholders are the mechanisms we use to understand how certain people belong in specific groups without actually knowing why or how. Most people can agree, for instance, that rabbits are mammals, but that doesn’t necessarily mean that they know the features that make an animal a mammal. An essentialist placeholder can be used to justify the categorization without actual knowledge of how this works.",
-			"Ok, let’s give this thing a try! Which one would you like to post?",
 			{
+				"prompt":[
+					"Ok, let’s give this thing a try! Which one would you like to post?"
+				],
 				"options":[
 					"Borscht-supporters are booger brains.",
 					"Borscht-supporters are booger brains because they pick their noses.",
@@ -211,8 +232,10 @@
 					"Not quite, you want to be truthful while also saying something scandalous. Basically, we’re name-calling without reasoning."
 				]
 			},
-			"Alright, on to the next social media post!",
 			{
+				"prompt": [
+					"Alright, on to the next social media post!"
+				],
 				"options":[
 					"Vote for Patricia Politician! I am a megastar because I am a natural leader with straight As.",
 					"Vote for Patricia Politician! I am a megastar!",
@@ -223,8 +246,10 @@
 					"That was a hard one. Remember that we don’t want to explain why someone deserves a certain title."
 				]
 			},
-			"Ok, here are the options for your very last social media post before the election!",
 			{
+				"prompt":[
+					"Ok, here are the options for your very last social media post before the election!"
+				],
 				"options":[
 					"You better vote for me, unless you want a barbaric bullfrog like Brandon Borscht for your president.",
 					"Brandon Borscht has been called a barbaric bullfrog by certain sources, but there has yet to be any evidence to back up that assertion.",
