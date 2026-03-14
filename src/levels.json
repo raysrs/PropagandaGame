@@ -1,98 +1,57 @@
 [
 	{
 		"title": "Introduction",
-		"pages": [
-			{
-				"type": "dialogue",
-				"lines": [
-					"Poppy: Hi, my name is Poppy Ganda, your campaign manager!",
-					"Patricia: Huh? What campaign?",
-					"Poppy: I'm here to help you win the Propagandaland High School student council election! I'll teach you all the propaganda skills you'll need to win your classmates' support.",
-					"Patricia: Ooooh! I LOVE propaganda! What's our plan?",
-					"Poppy: In each level, I focus on a different propaganda technique. After a brief lesson, I'll have you choose which statement best exemplifies that technique, and your answer will affect how many followers you get on social media. At the end of the game, if you have more than x followers, you'll win the election!",
-					"Patricia: Sounds like fun! Let's win this thing!"
-				]
-			}
+		"actions": ["Poppy", "Patricia", 0],
+		"lines": [
+			"Hi, my name is Poppy Ganda, your campaign manager!",
+			"Huh? What campaign?",
+			"I'm here to help you win the Propagandaland High School student council election! I'll teach you all the propaganda skills you'll need to win your classmates' support.",
+			"Ooooh! I LOVE propaganda! What's our plan?",
+			"In each level, I focus on a different propaganda technique. After a brief lesson, I'll have you choose which statement best exemplifies that technique, and your answer will affect how many followers you get on social media. At the end of the game, if you have more than x followers, you'll win the election!",
+			"Sounds like fun! Let's win this thing!"
 		]
 	},
 	{
 		"title": "Level 1 - Noun Subjectivity + Collocations",
-		"pages": [
+		"actions": ["Poppy", "clear", "Poppy", "question", 1],
+		"answer": 274,
+		"lines": [
+			"Our first topic is noun subjectivity and collocations. Nouns can convey an opinion using their collocations (the associations people have with words). In contrast, objective nouns are more factual and simply describe something without conveying the opinion of the speaker. For example, “brawl” is a subjective noun whereas “argument” is more objective. A person's collocations with a word can be shifted through repetition.",
+			"Which option would you like to post on social media?",
 			{
-				"type": "lesson",
-				"line": "Poppy: Our first topic is noun subjectivity and collocations. Nouns can convey an opinion using their collocations (the associations people have with words). In contrast, objective nouns are more factual and simply describe something without conveying the opinion of the speaker. For example, “brawl” is a subjective noun whereas “argument” is more objective. A person's collocations with a word can be shifted through repetition."
-			},
-			{
-				"type": "question",
-				"question": "Poppy: Which option would you like to post on social media?",
-				"answers": [
-					{
-						"key": "A",
-						"correct": false,
-						"text": "I'm Patricia Politician, and I'm running for student council president."
-					},
-					{
-						"key": "B",
-						"correct": true,
-						"text": "I'm Patricia Politician, and I'm fighting to be the leader of this institution."
-					},
-					{
-						"key": "C",
-						"correct": false,
-						"text": "My moniker is Patricia Politician. I am campaigning to be the prime minister of the student parliament"
-					}
+				"options":[
+					"I'm Patricia Politician, and I'm running for student council president.",
+					"I'm Patricia Politician, and I'm fighting to be the leader of this institution.",
+					"My moniker is Patricia Politician. I am campaigning to be the prime minister of the student parliament"
 				],
-				"affirmation": "Poppy: Nice work! You're a natural!",
-				"correction": "Poppy: Oops! The right answer is B because it uses subjective words like “fighting,” “leader,” and “institution.”"
+				"responses":[
+					"Nice work! You're a natural!",
+					"Oops! The right answer is B because it uses subjective words like “fighting,” “leader,” and “institution.”"
+				]
 			},
+			"What about these posts?",
 			{
-				"type": "question",
-				"question": "What about these posts?",
-				"answers": [
-					{
-						"key": "A",
-						"correct": false,
-						"text": "Brandon Borsht is also running for Student Council President."
-					},
-					{
-						"key": "B",
-						"correct": false,
-						"text": "Brandon Borsht is my opponent in this electoral race."
-					},
-					{
-						"key": "C",
-						"correct": true,
-						"text": "Brandon Borsht is my arch-enemy."
-					}
+				"options":[
+					"Brandon Borsht is also running for Student Council President.",
+					"Brandon Borsht is my opponent in this electoral race.",
+					"Brandon Borsht is my arch-enemy."
 				],
-				"affirmation": "Poppy: That's right! We are going to BRING HIM DOWN!!!",
-				"correction": "Poppy: Brandon Borsht is our arch-enemy. We are going to crush his bones and put them in our oatmeal for breakfast!"
+				"responses":[
+					"That's right! We are going to BRING HIM DOWN!!!",
+					"Brandon Borsht is our arch-enemy. We are going to crush his bones and put them in our oatmeal for breakfast!"
+				]
 			},
+			"Okay, this is the last round for this level:",
 			{
-				"type": "question",
-				"question": "Okay, this is the last round for this level:",
-				"answers": [
-					{
-						"key": "A",
-						"correct": false,
-						"text": "I plan to have felines come into the school every Wednesday."
-					},
-					{
-						"key": "B",
-						"correct": true,
-						"text": "I will pave the way to welcome kitties into our school every Wednesday."
-					},
-					{
-						"key": "C",
-						"correct": false,
-						"text": "I will bring cats to school once a week."
-					}
+				"options":[
+					"I plan to have felines come into the school every Wednesday.",
+					"I will pave the way to welcome kitties into our school every Wednesday.",
+					"I will bring cats to school once a week."
 				],
-				"affirmation": "Poppy: Great job! I love kitty-cats.",
-				"correction": "Poppy: Not quite. You need to make the word for cats less neutral with the word kitty."
-			},
-			{
-				"type": "results"
+				"responses":[
+					"Great job! I love kitty-cats.",
+					"Not quite. You need to make the word for cats less neutral with the word kitty."
+				]
 			}
 		]
 	}

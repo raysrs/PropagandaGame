@@ -1,20 +1,41 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Lesson, Question, Reaction, LevelResults } from "../components/gamePages";
-import placeholder from "../assets/placeholder.jpg";
+import GameDialogue from "../components/GameDialogue"
 import levels from "../levels.json";
+import placeholder from "../assets/placeholder.jpg";
 
 function Game() {
-  const [index, setIndex] = useState({level:0, page:0});
+  const [index, setIndex] = useState({level:0, line:0, action:0});
+  const [renderedLines, setRenderedLines] = useState([])
   const [likes, setLikes] = useState(0);
-  
+  const level = levels[index.level]
+
+  function nextLine(){
+    setIndex({...index, line:index.line+1, action:index.action+1})
+    let line = level.lines[index.line]
+    
+    //integer actions are interpereted as jump commands
+    if (Number.isInteger(level.actions[index.action])){
+      setIndex({...index, action:level.actions[index.action]})
+    }
+
+    //"clear" action clears list of rendered lines
+    if (level.actions[index.action] == "clear"){
+      setRenderedLines([])
+      setIndex({...index, action:index.action+1})
+    }
+
+    //all other actions are lines and can be rendered
+    setRenderedLines(renderedLines.concat({id:index.line, type:level.actions[index.action], text:line}))
+  }
+
   return(
     <div className="flex">
       <Sidebar likes={likes} />
       <div className="flex-auto flex flex-col">
-        <h1 className="p-1 border-2">{levels[index.level].title}</h1>
+        <h1 className="p-1 border-2">{level.title}</h1>
         <div className="flex-auto p-1 border-2">
-          {[<Lesson />, <Question />, <Reaction />, <LevelResults />][index.page]}
+          <GameDialogue lines={renderedLines} />
         </div>
       </div>
     </div>
