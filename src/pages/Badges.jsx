@@ -1,8 +1,9 @@
 import BadgeandBlurb from "../components/BadgeandBlurb";
+import { Link } from "react-router-dom";
 
 function Badges() {
   return (
-    <div className="bg-sky-400 font-serif h-[1500px]">
+    <div className="bg-sky-400 font-serif pb-8">
       <div className="bg-amber-400 text-bold text-center h-[50px] text-2xl font-bold py-3">
           My Badges
       </div>
@@ -27,6 +28,9 @@ function Badges() {
           badgename="Level 5 - Essentialist Placeholders"
           blurb="Essentialist placeholders are the mechanisms we use to understand how certain people belong in specific groups without actually knowing why or how.">
         </BadgeandBlurb>
+        <Link to="/" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold absolute right-4 bottom-4 w-[70px] text-center text-base">
+        Exit
+      </Link>
       </div>
     
     </div>

@@ -38,13 +38,13 @@ function Game() {
   //returns results page if there are no more lines in lesson
   if (index.line == level.lines.length) {
     return(
-      <div className="flex flex-col">
-        <h1 className="p-1 border-2">{level.title}</h1>
+      <div className="flex flex-col bg-sky-400 h-[750px]">
+        <h1 className="p-1 border-2 bg-pink-400 font-serif">{level.title}</h1>
         <div className="flex-auto" >
           <LevelResults likes={likes}/>
         </div>
         <div className="absolute bottom-4 right-4">
-          <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={nextLevel}> next level </button>
+          <button className="p-2 bg-pink-400 rounded-lg font-serif hover:bg-fuchsia-500 hover:font-semibold" onClick={nextLevel}> Next Level </button>
         </div>
       </div>
     );
@@ -67,14 +67,14 @@ function Game() {
       </div>
 
       <div className="flex-auto flex flex-col">
-        <h1 className="p-1 border-2">{level.title}</h1>
+        <h1 className="p-1 border-2 bg-pink-400 font-serif">{level.title}</h1>
         <div className="flex-auto p-1 border-2">
           <GameDialogue lines={renderedLines} addLikes={addLikes} />
         </div>
         <div className="absolute bottom-4 right-4">
           {(index.line+1 < level.lines.length)
-            ? <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={nextLine}> next </button>
-            : <button className="p-2 bg-gray-200 rounded-lg hover:bg-pink-200" onClick={seeResults}> see results </button>
+            ? <button className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold font-serif" onClick={nextLine}> Next </button>
+            : <button className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold font-serif" onClick={seeResults}> See Results </button>
           }
         </div>
       </div>

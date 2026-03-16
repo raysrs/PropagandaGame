@@ -18,7 +18,7 @@ function GameSidebar({likes}) {
         </div>
       </div>
 
-      <Link to="/" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 absolute left-4 bottom-4 w-[70px] text-center text-base">
+      <Link to="/" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold absolute left-4 bottom-4 w-[70px] text-center text-base">
         Exit
       </Link>
     </div>

@@ -17,7 +17,7 @@ function GameDialogue({lines, addLikes}){
 
 function SpeechBubble({text, type}){
   return(
-    <div className={(type == "Poppy") ? "bg-blue-500 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]" : "bg-amber-500 rounded-t-xl rounded-bl-xl mx-8 w-[500px] p-2 justify-self-end"}>
+    <div className={(type == "Poppy") ? "bg-amber-400 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]" : "bg-lime-500 rounded-t-xl rounded-bl-xl w-[500px] p-2 mx-8 float-right"}>
       {text}
     </div>
   )
@@ -44,7 +44,7 @@ function Question({text, addLikes}){
       <ul className="text-center">
         <li><SpeechBubble type="Poppy" text={text.prompt} /></li>
         {text.options.map((option, i) =>
-          <li key={i}>
+          <li key={i} className="bg-pink-400 hover:bg-fuchsia-500 hover:font-semibold font-serif rounded-full p-2 my-4 mx-8 text-center justify-center">
             <button onClick={() => handleChoice(i)}>
               {['A', 'B', 'C'][i]}: {option}
             </button>
@@ -55,11 +55,11 @@ function Question({text, addLikes}){
   } else {
     //rendered after answer chosen
     return(
-      <>
+      <div>
         <SpeechBubble text={text.prompt} type="Poppy" />
         <SpeechBubble text={text.options[index.choice]} type="Patricia" />
         <SpeechBubble text={text.responses[index.response]} type="Poppy"/>
-      </>
+      </div>
     );
   };
 };
