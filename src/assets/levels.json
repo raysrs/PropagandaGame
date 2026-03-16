@@ -72,6 +72,7 @@
 					"I will make the school bathrooms cleaner than they are now.",
 					"In my presidency, our school will be ranked the cleanest in PropagandaCounty."
 				],
+				"answer":0,
 				"responses":[
 					"Nice job! We can use this vagueness to avoid follow-through once you become president.",
 					"I’m not sure we can hold true to this, we don’t want a scandal on our hands! Option A gives us wiggle room to get out of any promises."
@@ -86,6 +87,7 @@
 					"Brandon Borscht’s straight B’s are puny in comparison to my straight A’s.",
 					"I am more qualified for this role."
 				],
+				"answer":2,
 				"responses":[
 					"Good work! This will get your followers to make up reasons why you are more qualified. For some of them, that might be good grades, for others, it might be policy experience. You’re not lying, you’re planting the seeds of falsehood!",
 					"Let’s be honest here. We both know that Brandon is a star academic. And your grades are, well… You’re prioritizing this election! Anyways, we don’t want to be specific enough that we could be fact-checked. Also, leaving out how you’re more qualified will get your followers to make up reasons why you are more qualified. For some of them, that might be good grades, for others, it might be policy experience. You’re not lying, you’re planting the seeds of falsehood!"
@@ -100,6 +102,7 @@
 					"Vote Patricia to make your dreams come true!",
 					"A vote for me is a vote for kitties"
 				],
+				"answer":1,
 				"responses":[
 					"Good eye! We want to draw in even the people who are allergic to cats!",
 					"Not quite! The second option is just vague enough to not bind us to anything while still getting our followers to believe that you will institute policy that they’re interested in."
@@ -124,6 +127,7 @@
 					"Do you really want someone as stinky as Brandon representing you as student council president?",
 					"Brandon is using his good looks to trick people into voting for him! Don’t be fooled!"
 				],
+				"answer":2,
 				"responses":[
 					"Nice! This contradicts your previous statement, making you seem more trustworthy and less like you’re trying to push an agenda.",
 					"It’s tempting to post stuff about how gross Brandon is, but if you keep pushing a certain message, people will become aware of the fact that you’re trying to push them into believing something. Option C is much more subtle."
@@ -138,6 +142,7 @@
 					"School elections should ban students who are failing all their classes from voting. That would root out the Borscht-supporters for sure!",
 					"Don’t let their simple looks fool you, the Borscht-supporters are plotting something!"
 				],
+				"answer":1,
 				"responses":[
 					"Good! The Borscht-supporters are both evil geniuses and evil idiots.",
 					"Remember: we want two contradicting statements!"
@@ -153,6 +158,7 @@
 					"If Borscht wins, he’ll be too lazy to do anything.",
 					"Borscht slept through all of history class today."
 				],
+				"answer":0,
 				"responses":[
 					"That’s right! What kind of monster would refuse to do their own homework, and then make teachers give their classmates MORE homework?",
 					"We’re choosing contradicting statements here. If Brandon is lazy, he probably wouldn’t have the energy to make teachers do anything."
@@ -175,6 +181,7 @@
 					"Borschts start fights.",
 					"Borschts start fights constantly."
 				],
+				"answer":1,
 				"responses":[
 					"Nice! You identified that the vagueness in the second statement leaves the statement up to audience interpretation! Kind of like Linguistic Cliffhangers.",
 					" Not quite. The vagueness in second statement leaves the statement up to audience interpretation. Kind of like Linguistic Cliffhangers!"
@@ -189,6 +196,7 @@
 					"Brandon is sometimes sweaty after PE.",
 					"EWWW! Brandon is SOO sweaty today!"
 				],
+				"answer":0,
 				"responses":[
 					"Good! Just like in the last one, you want to be vague enough to imply something without actually saying it.",
 					" Option 2 is boring, and option 3 is not true (I don’t know what kind of deodorant he’s using, but it’s working!), Option 1 has the best of both -- scandalous, but not blatantly untrue."
@@ -203,6 +211,7 @@
 					"Borscht-supporters skip class.",
 					"Some Borscht-supporters skip class at times."
 				],
+				"answer":1,
 				"responses":[
 					"Nice!",
 					"Sorry, that’s not right! You need to remember to be vague."
@@ -227,6 +236,7 @@
 					"Borscht-supporters are booger brains because they pick their noses.",
 					"I’ve never seen Borscht-supporters pick their noses, so they’re not booger brains."
 				],
+				"answer":0,
 				"responses":[
 					"Nice! Basically, we’re name-calling without a definition of the names we’re using.",
 					"Not quite, you want to be truthful while also saying something scandalous. Basically, we’re name-calling without reasoning."
@@ -241,6 +251,7 @@
 					"Vote for Patricia Politician! I am a megastar!",
 					"Vote for Patricia Politician! I may or may not be a megastar (probably not, tbh)."
 				],
+				"answer":1,
 				"responses":[
 					"That was a hard one. Nice work!",
 					"That was a hard one. Remember that we don’t want to explain why someone deserves a certain title."
@@ -255,6 +266,7 @@
 					"Brandon Borscht has been called a barbaric bullfrog by certain sources, but there has yet to be any evidence to back up that assertion.",
 					"Brandon Borscht is a barbaric bullfrog! That means that he drinks swamp water for breakfast and burps bubbles during lunch."
 				],
+				"answer":0,
 				"responses":[
 					"Nice job finishing it out strong! See you on election day!",
 					"Unfortunately, that is not correct. However, you might still win this election! I’m rooting for you!"
