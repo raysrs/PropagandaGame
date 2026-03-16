@@ -10,7 +10,9 @@ function Game() {
   const [likes, setLikes] = useState(0);
   const level = levels[index.level];
 
-  const addLikes = (l) => setLikes(likes+l)
+  function addLikes(quant) {
+    setLikes(likes+quant)
+  };
 
   function nextLine() {
     let actionIndex = index.action
@@ -33,24 +35,13 @@ function Game() {
     setIndex({...index, line:index.line+1, action:actionIndex+1});
   };
 
-  function seeResults(){
-    setRenderedLines([]);
-    setIndex({...index, line:index.line+1});
-  };
-
-  function nextLevel(){
-    setIndex({level:index.level+1, line:0, action:0});
-  };
-
   //returns results page if there are no more lines in lesson
   if (index.line == level.lines.length) {
     return(
       <div className="flex flex-col bg-sky-400 h-[750px]">
         <h1 className="p-1 border-2 bg-pink-400 font-serif">{level.title}</h1>
         <div className="flex-auto" >
-          <LevelResults 
-            likes={likes}
-          />
+          <LevelResults likes={likes}/>
         </div>
         <div className="absolute bottom-4 right-4">
           <button className="p-2 bg-pink-400 rounded-lg font-serif hover:bg-fuchsia-500 hover:font-semibold" onClick={nextLevel}> Next Level </button>
@@ -58,10 +49,19 @@ function Game() {
       </div>
     );
   };
+  
+  function nextLevel() {
+    setIndex({level:index.level+1, line:0, action:0})
+  };
+
+  function seeResults() { 
+    setIndex({...index, line:index.line+1})
+    setRenderedLines([]);
+  };
 
   //default return
   return(
-    <div className="flex">
+    <div className="flex h-dvh w-dvw">
       <div className="flex-none">
         <GameSidebar likes={likes} />
       </div>
@@ -81,7 +81,5 @@ function Game() {
     </div>
   );
 };
-
-
 
 export default Game;
