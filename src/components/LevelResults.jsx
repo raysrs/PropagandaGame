@@ -1,7 +1,7 @@
 function LevelResults({likes}){
   return(
     <div className="inline-block">
-      resulting likes: {likes}
+      <span>total likes: {likes}</span>
     </div>
   );
 };
