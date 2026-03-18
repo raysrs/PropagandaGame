@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import placeholder from "../assets/placeholder.jpg";
+import placeholder from "../../assets/placeholder.jpg";
 
-function GameSidebar({likes}) {
+function Sidebar({likes}) {
   return(
     <div className="w-xs h-dvh p-2 border-2 font-serif bg-sky-400 text-xl">
       <img src={placeholder} alt="Patricia Politician"></img>
       <div className="text-center">
         Patricia Politician
       </div>
-
       <div className= "text-2xl mr-[200px] text-center mt-8 w-[300px]"> 
         Likes: 
       </div>
@@ -25,4 +24,4 @@ function GameSidebar({likes}) {
   );
 };
 
-export default GameSidebar
+export default Sidebar
