@@ -1,85 +1,77 @@
 import { useState } from "react";
-import GameDialogue from "../components/GameDialogue"
-import GameSidebar from "../components/GameSidebar"
-import LevelResults from "../components/LevelResults";
 import levels from "../assets/levels.json";
 
+import Level from "../components/game/Level";
+import Results from "../components/game/Results";
+import Sidebar from "../components/game/Sidebar";
+import NextButton from "../components/game/NextButton";
+
+/*
+to do:
+  - make level remember prompts after choice made
+  - change format of levels to match level 1
+  - make likes update while in level
+*/
+
 function Game() {
-  const [index, setIndex] = useState({level:0, line:0, action:0});
-  const [renderedLines, setRenderedLines] = useState([]);
-  const [likes, setLikes] = useState(0);
-  const level = levels[index.level];
+  const [level, setLevel] = useState(0);
+  const [currentPage, setCurrentPage] = useState("level");
+  const [stats, setStats] = useState({totalLikes:0, byLevel:[]});
 
-  function addLikes(quant) {
-    setLikes(likes+quant)
+  function nextLevel(){
+    setLevel(level + 1)
+    setCurrentPage("level")
+  }
+
+  //called when level ends
+  function handleLevelCompletion(levelStats){
+    //document user's stats from level
+    setStats({
+      totalLikes: stats.totalLikes + levelStats.likes,
+      byLevel: stats.byLevel.concat([levelStats])
+    });
+    if (levelStats.choices.length == 0){
+      //move on to next level if level had no questions
+      nextLevel();
+    } else {
+      //display results page if level had any questions
+      setCurrentPage("results");
+    };
   };
 
-  function nextLine() {
-    let actionIndex = index.action
-    let rl = renderedLines
-    
-    //integer actions are interpereted as jump commands
-    if (Number.isInteger(level.actions[actionIndex])){
-      actionIndex = level.actions[actionIndex];
-    };
-
-    //"clear" action clears list of rendered lines
-    if (level.actions[actionIndex] == "clear"){
-      rl = [];
-      actionIndex++;
-    };
-
-    //all other actions are lines and can be rendered
-    rl.push({id:index.line, type:level.actions[actionIndex], text:level.lines[index.line]});
-    setRenderedLines(rl);
-    setIndex({...index, line:index.line+1, action:actionIndex+1});
-  };
-
-  //returns results page if there are no more lines in lesson
-  if (index.line == level.lines.length) {
+  //render level
+  if (currentPage == "level") {
     return(
-      <div className="flex flex-col bg-sky-400 h-[750px]">
-        <h1 className="p-1 border-2 bg-pink-400 font-serif">{level.title}</h1>
-        <div className="flex-auto" >
-          <LevelResults likes={likes}/>
+      <div className="flex h-dvh w-dvw">
+        <div className="flex-none">
+          <Sidebar likes={stats.totalLikes} />
         </div>
-        <div className="absolute bottom-4 right-4">
-          <button className="p-2 bg-pink-400 rounded-lg font-serif hover:bg-fuchsia-500 hover:font-semibold" onClick={nextLevel}> Next Level </button>
+        <div className="flex-auto flex flex-col">
+          <h1 className="p-1 border-2 bg-pink-400 font-serif">{levels[level].title}</h1>
+          <div className="flex-auto p-1 border-2">
+            <Level
+              key={level}
+              props={levels[level]}
+              handleLevelCompletion={handleLevelCompletion}
+            />
+          </div>
         </div>
       </div>
     );
   };
-  
-  function nextLevel() {
-    setIndex({level:index.level+1, line:0, action:0})
-  };
 
-  function seeResults() { 
-    setIndex({...index, line:index.line+1})
-    setRenderedLines([]);
-  };
-
-  //default return
-  return(
-    <div className="flex h-dvh w-dvw">
-      <div className="flex-none">
-        <GameSidebar likes={likes} />
-      </div>
-
-      <div className="flex-auto flex flex-col">
+  //render results page
+  if (currentPage == "results") {
+    return(
+      <div className="flex flex-col bg-sky-400 h-[750px]">
         <h1 className="p-1 border-2 bg-pink-400 font-serif">{level.title}</h1>
-        <div className="flex-auto p-1 border-2">
-          <GameDialogue lines={renderedLines} addLikes={addLikes} />
+        <div className="flex-auto" >
+          <Results stats={stats}/>
         </div>
-        <div className="absolute bottom-4 right-4">
-          {(index.line+1 < level.lines.length)
-            ? <button className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold font-serif" onClick={nextLine}> Next </button>
-            : <button className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold font-serif" onClick={seeResults}> See Results </button>
-          }
-        </div>
+        <NextButton handleClick={nextLevel}> next level </NextButton>
       </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default Game;
