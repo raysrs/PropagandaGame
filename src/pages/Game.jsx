@@ -6,13 +6,6 @@ import Results from "../components/game/Results";
 import Sidebar from "../components/game/Sidebar";
 import NextButton from "../components/game/NextButton";
 
-/*
-to do:
-  - make level remember prompts after choice made
-  - change format of levels to match level 1
-  - make likes update while in level
-*/
-
 function Game() {
   const [level, setLevel] = useState(0);
   const [currentPage, setCurrentPage] = useState("level");
