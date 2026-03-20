@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import placeholder from "../assets/placeholder.jpg";
+import patricia from "../assets/patricia.jpg";
 
 function GameSidebar({likes}) {
   return(
     <div className="w-xs h-dvh p-2 border-2 font-serif bg-sky-400 text-xl">
-      <img src={placeholder} alt="Patricia Politician"></img>
+      <div className="h-[150px] w-[150px] overflow-hidden flex mx-[70px] mt-2">
+        <img className="-rotate-90 h-full w-full object-cover object-center rounded-full" src={patricia} alt="Patricia Politician"></img>
+        </div>
       <div className="text-center">
         Patricia Politician
       </div>
