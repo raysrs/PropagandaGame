@@ -17,10 +17,23 @@ function GameSidebar({likes}) {
           {likes}
         </div>
       </div>
+      <div className="w-[300px] flex justify-center my-8">
+        <Link to="/" className="p-2 mt-[40px] mx-8 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold text-center text-xl text-base w-[150px]">
+          Home
+        </Link>
+      </div>
 
-      <Link to="/" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold absolute left-4 bottom-4 w-[70px] text-center text-base">
-        Exit
-      </Link>
+      <div className="w-[300px] flex justify-center my-8"> 
+        <Link to="/badges" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold text-center text-xl text-base w-[150px]">
+          View Badges
+        </Link>
+      </div>
+      <div className="w-[300px] flex justify-center my-8">  
+        <Link to="/about" className="p-2 bg-pink-400 rounded-lg hover:bg-fuchsia-500 hover:font-semibold text-center text-xl text-base w-[150px]">
+          About Us
+        </Link>
+      </div>
+      
     </div>
   );
 };
