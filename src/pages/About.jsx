@@ -1,6 +1,6 @@
 import AboutCard from "../components/AboutCard";
 import zoe from "../assets/zoe.jpg";
-import placeholder from "../assets/placeholder.jpg";
+import example from "../assets/example.jpg";
 import { Link } from "react-router-dom";
 
 function About() {
@@ -19,7 +19,7 @@ function About() {
         <div>
           <AboutCard
           name="Ray"
-          picture={placeholder}
+          picture={example}
           blurb="Hello">
           </AboutCard>
         </div>
