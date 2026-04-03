@@ -1,7 +1,5 @@
 import {useState} from 'react';
-import NextButton from './NextButton';
-import SpeechBubble from './SpeechBubble';
-import Question from './Question';
+import {NextButton, SpeechBubble, Question} from "./"
 
 function Level({data, index, setIndex, rewardAnswer}){
   const lines = data.lines.map((lineData, lineIndex) => toComponent(lineData, lineIndex))

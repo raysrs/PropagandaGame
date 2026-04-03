@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="bg-sky-400 h-[1000px]">
-      <div className='m-4 font-serif'>
+    <div className="bg-sky-400 h-dvh font-serif p-4">
         <div className='text-right bg-sky-400'>
           <Link to='/about' className='inline-block px-4 py-2 text-2xl bg-pink-400 hover:bg-fuchsia-500 hover:font-semibold'>
             About Us
@@ -29,7 +28,6 @@ function Home() {
             My Badges
           </Link>
         </div>
-      </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import patricia from "../../assets/patricia.jpg"
 
 function Sidebar({likes}) {
   return(
-    <div className="w-xs h-dvh p-2 border-2 font-serif bg-sky-400 text-xl">
+    <div className="w-xs h-dvh p-2 border-r-2 border-sky-600 font-serif bg-sky-400 text-xl">
      <div className="h-[150px] w-[150px] overflow-hidden flex mx-[70px] mt-2">
        <img className="h-full w-full object-cover object-center rounded-full" src={patricia} alt="Patricia Politician"></img>
        </div>

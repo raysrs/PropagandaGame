@@ -1,11 +1,7 @@
 import {useState} from 'react';
 import levels from "../assets/levels.json";
 
-import Level from "../components/game/Level";
-import Sidebar from "../components/game/Sidebar";
-import Results from "../components/game/Results";
-import NextButton from "../components/game/NextButton";
-
+import {Level, Sidebar, Results, NextButton} from "../components/game"
 
 function Game(){
   const [index, setIndex] = useState({level:0, line:0, likes:0})
@@ -33,8 +29,8 @@ function Game(){
         <Sidebar likes={index.likes} />
       </div>
       <div className="flex-auto flex flex-col">
-        <h1 className="p-1 border-2 bg-pink-400 font-serif">{levelData.title}</h1>
-        <div className="flex-auto p-1 border-2">
+        <h1 className="py-1 px-4 bg-pink-400 border-b-2 border-pink-600 text-2xl font-serif">{levelData.title}</h1>
+        <div className="flex-auto p-1">
           <Level
             key={index.level}
             data={levelData}
@@ -51,7 +47,7 @@ function Game(){
     //once level is over, returns results page if there were any questions in the level
     return(
       <div className="flex flex-col bg-sky-400 h-[750px]">
-        <h1 className="p-1 border-2 bg-pink-400 font-serif">{levelData.title}</h1>
+        <h1 className="p-1 bg-pink-400 font-serif">{levelData.title}</h1>
         <div className="flex-auto" >
           <Results index={index} levelStats={levelStats}/>
         </div>

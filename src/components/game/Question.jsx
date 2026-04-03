@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SpeechBubble from "./SpeechBubble";
+import { SpeechBubble } from "./";
 
 function Question({props, handleChoice}){
   const [index, setIndex] = useState({choice:-1, response:-1});
