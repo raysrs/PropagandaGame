@@ -14,13 +14,14 @@ function Game(){
 
   function nextLevel() {
     setIndex({...index, level:index.level+1, line:0})
+    setLevelStats({correctAnswers:0, likes:0})
   }
 
   function rewardAnswer(isCorrect) {
     const likesRewarded = Math.floor(isCorrect ? (Math.random() * 20 + 90) : (Math.random() * 10 + 1));
     setIndex({...index, likes:index.likes+likesRewarded});
     setLevelStats({
-      correctAnswers: levelStats.correctAnswers + isCorrect ? 1 : 0,
+      correctAnswers: levelStats.correctAnswers + (isCorrect ? 1 : 0),
       likes: levelStats.likes + likesRewarded
     })
   }
