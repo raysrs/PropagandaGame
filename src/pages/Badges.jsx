@@ -8,7 +8,7 @@ import disposition from "../assets/disposition.jpg";
 
 function Badges() {
   return (
-    <div className="bg-sky-400 font-serif pb-8">
+    <div className="h-dvh pb-8 bg-sky-400 font-serif">
       <div className="bg-amber-400 text-bold text-center h-[50px] text-2xl font-bold py-3">
           My Badges
       </div>
