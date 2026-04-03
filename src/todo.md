@@ -10,7 +10,7 @@
 
 ## Styling
   - [ ] make game scroll
-  - [ ] remove white bar from home page & make background the right size
+  - [x] remove white bar from home page & make background the right size
   - [ ] css button class? consider
   - [ ] consistant rounding
   - [ ] reconsider black borders
