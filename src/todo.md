@@ -9,10 +9,10 @@
   - [ ] upload about us photo
 
 ## Styling
-  - [ ] make game scroll
   - [x] remove white bar from home page & make background the right size
+  - [x] reconsider black borders
+  - [ ] make game scroll
   - [ ] css button class? consider
   - [ ] consistant rounding
-  - [ ] reconsider black borders
   - [ ] make speech bubbles work on different screen sizes?
   - [ ] dark mode?
