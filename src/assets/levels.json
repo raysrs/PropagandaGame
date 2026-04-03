@@ -12,39 +12,47 @@
 	},
 	{
 		"title": "Level 1 - Noun Subjectivity + Collocations",
-		"key": [1, 0, 0],
 		"lines": [
 			"Poppy: Our first topic is noun subjectivity and collocations. Nouns can convey an opinion using their collocations (the associations people have with words). In contrast, objective nouns are more factual and simply describe something without conveying the opinion of the speaker. For example, “brawl” is a subjective noun whereas “argument” is more objective. A person's collocations with a word can be shifted through repetition.",
-			"prompt: Which option would you like to post on social media?",
-			[
-				"I'm Patricia Politician, and I'm running for student council president.",
-				"I'm Patricia Politician, and I'm fighting to be the leader of this institution.",
-				"My moniker is Patricia Politician. I am campaigning to be the prime minister of the student parliament"
-			],
-			[
-				"Nice work! You're a natural!",
-				"Oops! The right answer is B because it uses subjective words like “fighting,” “leader,” and “institution.”"
-			],
-			"prompt: What about these posts?",
-			[
-				"Brandon Borsht is also running for Student Council President.",
-				"Brandon Borsht is my opponent in this electoral race.",
-				"Brandon Borsht is my arch-enemy."
-			],
-			[
-				"That's right! We are going to BRING HIM DOWN!!!",
-				"Brandon Borsht is our arch-enemy. We are going to crush his bones and put them in our oatmeal for breakfast!"
-			],
-			"prompt: Okay, this is the last round for this level:",
-			[
-				"I plan to have felines come into the school every Wednesday.",
-				"I will pave the way to welcome kitties into our school every Wednesday.",
-				"I will bring cats to school once a week."
-			],
-			[
-				"Great job! I love kitty-cats.",
-				"Not quite. You need to make the word for cats less neutral with the word kitty."
-			],
+			{
+				"prompt": "Which option would you like to post on social media?",
+				"options": [
+					"I'm Patricia Politician, and I'm running for student council president.",
+					"I'm Patricia Politician, and I'm fighting to be the leader of this institution.",
+					"My moniker is Patricia Politician. I am campaigning to be the prime minister of the student parliament"
+				],
+				"correctAnswer": 1,
+				"responses": [
+					"Nice work! You're a natural!",
+					"Oops! The right answer is B because it uses subjective words like “fighting,” “leader,” and “institution.”"
+				]
+			},
+			{
+				"prompt": "What about these posts?",
+				"options":[
+					"Brandon Borsht is also running for Student Council President.",
+					"Brandon Borsht is my opponent in this electoral race.",
+					"Brandon Borsht is my arch-enemy."
+				],
+				"correctAnswer": 2,
+				"responses":[
+					"That's right! We are going to BRING HIM DOWN!!!",
+					"Brandon Borsht is our arch-enemy. We are going to crush his bones and put them in our oatmeal for breakfast!"
+				]
+			},
+			{
+				"prompt": "Okay, this is the last round for this level:",
+				"options":[
+					"I plan to have felines come into the school every Wednesday.",
+					"I will pave the way to welcome kitties into our school every Wednesday.",
+					"I will bring cats to school once a week."
+				],
+				"correctAnswer":1,
+				"responses":[
+					"Great job! I love kitty-cats.",
+					"Not quite. You need to make the word for cats less neutral with the word kitty."
+				]
+			},
 			"Poppy: That’s all the posts we’ll be making for this level. Click next to see how you did!"
 		]
 	},

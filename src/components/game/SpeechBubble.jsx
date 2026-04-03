@@ -1,8 +1,8 @@
-function SpeechBubble({type, children}){
+function SpeechBubble({speaker, children}){
   let style;
 
   //styling based on which charecter is speaking
-  switch (type){
+  switch (speaker){
     case "Poppy":
       //amber and on left side if charecter is Poppy
       style = "bg-amber-400 rounded-t-xl rounded-br-xl mx-8 my-6 p-2 w-[500px]";
