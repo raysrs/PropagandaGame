@@ -1,86 +1,57 @@
-import { useState, useRef } from "react";
-import SpeechBubble from "./SpeechBubble";
-import Choice from "./Choice";
-import NextButton from "./NextButton";
+import {useState} from 'react';
+import NextButton from './NextButton';
+import SpeechBubble from './SpeechBubble';
+import Question from './Question';
 
-function Level({props, handleLevelCompletion}) {
-  let remainingLines = useRef(props.lines);
-  const [renderedLines, setRenderedLines] = useState([]);
-  const [stats, setStats] = useState({likes:0, choices:[], correctAnswers:0});
+function Level({data, index, setIndex, rewardAnswer}){
+  const lines = data.lines.map((lineData, lineIndex) => toComponent(lineData, lineIndex))
+  const [awaitingResponse, setAwaitingResponse] = useState(false)
 
-  const pushLine = (l) => setRenderedLines(renderedLines.concat([l]));
+  function nextLine(){
+    //in effect, disables next button temporarially if next line is a question
+    if(typeof data.lines[index.line+1] != 'string'){
+      setAwaitingResponse(true)
+    }
+    //increments index of current line
+    setIndex({...index, line:index.line+1})
+  }
 
-  function next() {
-    if (remainingLines.current.length == 0){
-      handleLevelCompletion(stats);
+  function toComponent(lineData, lineIndex){
+    if(typeof lineData === 'string'){
+      //return speech bubble component if line datatype is string
+      let speaker = lineData.slice(0, lineData.indexOf(":"));
+      let text = lineData.slice(lineData.indexOf(":") + 1);
+      return(
+        <SpeechBubble speaker={speaker} key={lineIndex}> {text} </SpeechBubble>
+      );
+
     } else {
-      nextLine();
+      //return question component if datatype is not string
+      return(
+        <Question props={lineData} handleChoice={handleQuestionAnswered} key={lineIndex} />
+      )
     }
   }
 
-  function nextLine() { 
-    const line = remainingLines.current.shift();
-    let lineType = line.slice(0, line.indexOf(":"));
-    let lineContent = line.slice(line.indexOf(":") + 1);
-
-    switch (lineType) {
-      case "Poppy": case "Patricia":
-        //render speech bubble
-        pushLine(
-          <SpeechBubble type={lineType}> {lineContent} </SpeechBubble>
-        )
-        break;
-
-      case "prompt":
-        //adds prompting speechbubble and choice line
-        pushLine(
-          <SpeechBubble type="Poppy"> {lineContent} </SpeechBubble>
-        )
-        const options = remainingLines.current.shift();
-        pushLine(
-          <Choice options={options} handleChoice={handleChoice} />
-        )
-        break;
-    }
-  }
-
-  function handleChoice(choice) {
-    const isCorrect = (choice == props.key[stats.choices.length]);
-    const i = isCorrect ? 1 : 0;
-
-    //if correct reward 90-110 likes, if incorrect reward 1-10 likes
-    const likesGained = Math.floor(isCorrect ? (Math.random() * 20 + 90) : (Math.random() * 10 + 1));
-    
-    // change user statistics accordingly
-    setStats({
-      likes: stats.likes + likesGained,
-      choices: stats.choices.concat(choice),
-      correctAnswers: stats.correctAnswers + i
-    });
-
-    //get 1st reaction if correct and 2nd if incorrect
-    const responses = remainingLines.current.shift()
-
-    // render poppy's response
-    pushLine(
-      <SpeechBubble type="Poppy"> {responses.at(1-i)} </SpeechBubble>
-    );
+  function handleQuestionAnswered(isCorrect){
+    setAwaitingResponse(false);
+    rewardAnswer(isCorrect);
   }
 
   return(
     // maps each line to a list item, which is displayed
     // line id shennanigans are to help react differentiate the lines
-    <div>
+    <>
       <ul className="flex flex-col">
-        {renderedLines.map((line, index) => 
-          <li key={index}>
+        {lines.slice(0,index.line+1).map((line, i) => 
+          <li key={i}>
             {line}
           </li>
         )}
       </ul>
-      {(!Array.isArray(remainingLines.current[0])) && <NextButton handleClick={next} />}
-    </div>
-  );
+      {(!awaitingResponse) && <NextButton handleClick={nextLine} />}
+    </>
+  )
 }
 
 export default Level;
