@@ -1,11 +1,7 @@
 import {useState} from 'react';
 import levels from "../assets/levels.json";
 
-import Level from "../components/game/Level";
-import Sidebar from "../components/game/Sidebar";
-import Results from "../components/game/Results";
-import NextButton from "../components/game/NextButton";
-
+import {Level, Sidebar, Results, NextButton} from "../components/game"
 
 function Game(){
   const [index, setIndex] = useState({level:0, line:0, likes:0})

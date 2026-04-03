@@ -1,10 +1,6 @@
 import BadgeandBlurb from "../components/BadgeandBlurb";
 import { Link } from "react-router-dom";
-import cliffhangers from "../assets/cliffhangers.jpg";
-import collocations from "../assets/collocations.jpg";
-import opposites from "../assets/opposites.jpg";
-import essentialist from "../assets/essentialist.jpg";
-import disposition from "../assets/disposition.jpg";
+import { cliffhangers, collocations, opposites, essentialist, disposition } from "../assets/badges";
 
 function Badges() {
   return (
