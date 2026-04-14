@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Home() {
+export default function Home() {
   return (
     <div className="bg-sky-400 h-dvh font-serif p-4">
         <div className='text-right bg-sky-400'>
@@ -29,7 +29,5 @@ function Home() {
           </Link>
         </div>
     </div>
-  )
-}
-
-export default Home;
+  );
+};

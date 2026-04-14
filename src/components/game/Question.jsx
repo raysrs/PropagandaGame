@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserDispatchContext } from "../UserContext";
 import { SpeechBubble } from "./";
 
-function Question({props, handleChoice}){
-  const [index, setIndex] = useState({choice:-1, response:-1});
+function Question({props}){
+  const userDispatch = useContext(UserDispatchContext);
+
+  const [state, setState] = useState({choice:-1, response:-1});
 
   function handleClick(i){
     const isCorrect = (i == props.correctAnswer);
-    setIndex({choice:i, response:isCorrect ? 0 : 1});
-    handleChoice(isCorrect);
+    const likesRewarded = Math.floor(isCorrect ? (Math.random() * 20 + 90) : (Math.random() * 10 + 1));
+
+    //update question state (deactivates buttons & highlights chosen answer)
+    setState({choice:i, response:isCorrect ? 0 : 1});
+
+    //rewards user & updates stats
+    userDispatch({type:"addLikes", likes:likesRewarded})
+    userDispatch({type:"addLevelStats", likes:likesRewarded, correctAnswers:isCorrect ? 1 : 0})
   };
 
   return(
@@ -15,7 +24,7 @@ function Question({props, handleChoice}){
       <SpeechBubble speaker={"Poppy"}>{props.prompt}</SpeechBubble>
       <ul className="text-center">{props.options.map((text, i) => 
         <li key={i} className="my-4 mx-8 text-center justify-center">{
-          (index.choice == -1)
+          (state.choice == -1)
 
             // displayed before choice made
           ? <div className="bg-pink-400 hover:bg-fuchsia-500 hover:font-semibold font-serif rounded-full p-2">
@@ -24,7 +33,7 @@ function Question({props, handleChoice}){
 
           : // displayed after choice made
             <div className={
-              (index.choice == i) // chosen option displays brighter than non-chosen
+              (state.choice == i) // chosen option displays brighter than non-chosen
               ? "bg-pink-400 font-serif rounded-full p-2" 
               : "bg-pink-200 font-serif rounded-full p-2"
             }>
@@ -35,7 +44,7 @@ function Question({props, handleChoice}){
       )}</ul>
       {
         // displays poppy's response if user has made choice
-        (index.choice != -1) && <SpeechBubble speaker={"Poppy"}>{props.responses[index.response]}</SpeechBubble>
+        (state.choice != -1) && <SpeechBubble speaker={"Poppy"}>{props.responses[state.response]}</SpeechBubble>
       }
     </>
   )
