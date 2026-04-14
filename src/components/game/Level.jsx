@@ -50,13 +50,13 @@ function Level({data}){
           {data.title}
         </h1>
         {/* dialogue: maps lines to html list components, which are rendered */}
-        <ul className="flex-auto p-1 flex flex-col">
+        <ul className="flex-auto py-2 flex flex-col-reverse overflow-auto">
           {
           lines.slice(0,user.lineNum+1).map((line, i) => 
             <li key={i}>
               {line}
             </li>
-          )}
+          ).reverse()}
         </ul>
         {
           /* next line button, not rendered if awaiting question response or last line of last level*/

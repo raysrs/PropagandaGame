@@ -27,15 +27,18 @@ function Question({props}){
           (state.choice == -1)
 
             // displayed before choice made
-          ? <div className="bg-pink-400 hover:bg-fuchsia-500 hover:font-semibold font-serif rounded-full p-2">
-              <button onClick={() => handleClick(i)}> {['A', 'B', 'C'][i]}: {text} </button>
-            </div>
+          ? <button
+              onClick={() => handleClick(i)}
+              className="bg-pink-400 font-serif rounded-full w-full p-2 hover:bg-fuchsia-500 hover:font-semibold"
+            >
+              {['A', 'B', 'C'][i]}: {text}
+            </button>
 
           : // displayed after choice made
             <div className={
               (state.choice == i) // chosen option displays brighter than non-chosen
               ? "bg-pink-400 font-serif rounded-full p-2" 
-              : "bg-pink-200 font-serif rounded-full p-2"
+              : "bg-pink-200 text-pink-800 font-serif rounded-full p-2"
             }>
               {['A', 'B', 'C'][i]}: {text}
             </div>
