@@ -26,8 +26,9 @@ function Level({data}){
 
   function next(){
     //increments line number if more lines remain or level had questions, otherwise moves on to next level
-    if((user.lineNum < data.lines.length-1) || (data.lines.map((lineData) => typeof lineData).includes('object'))){
+    if((user.lineNum < lines.length-1) || (data.lines.map((lineData) => typeof lineData).includes('object'))){
       userDispatch({type:"nextLine"})
+
       //update user's prompt status if next line is question
       if(typeof data.lines[user.lineNum+1] === 'object'){
         userDispatch({type:"userPrompted"})
@@ -57,8 +58,10 @@ function Level({data}){
             </li>
           )}
         </ul>
-        {/* next line button, not rendered if awaiting question response */}
-        {(!user.isPrompted) && <NextButton handleClick={next} />}
+        {
+          /* next line button, not rendered if awaiting question response or last line of last level*/
+          (!user.isPrompted && (user.lineNum < lines.length-1 || user.levelNum < 6)) && <NextButton handleClick={next} />
+        }
       </div>
     </div>
   )

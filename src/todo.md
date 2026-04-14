@@ -7,7 +7,7 @@
   - [x] change format of levels to match level 1
   - [x] award badges when level completed
   - [ ] store badge data in levels.json
-  - [ ] make end of level link to about us or smth
+  - [x] make end of level link to about us or smth
   - [ ] upload about us photo
 
 ## Styling
