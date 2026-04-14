@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 import patricia from "../../assets/patricia.jpg"
 
-function Sidebar({likes}) {
+function Sidebar() {
+  const likes = useContext(UserContext).likes;
+
   return(
     <div className="w-xs h-dvh p-2 border-r-2 border-sky-600 font-serif bg-sky-400 text-xl">
      <div className="h-[150px] w-[150px] overflow-hidden flex mx-[70px] mt-2">

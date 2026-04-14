@@ -3,7 +3,7 @@ import zoe from "../assets/zoe.jpg";
 import example from "../assets/example.jpg";
 import { Link } from "react-router-dom";
 
-function About() {
+export default function About() {
   return (
     <div className="bg-sky-400 p-4 h-dvh font-serif">
       <div className="text-4xl font-bold text-center rounded-lg bg-amber-400">About Us!</div>
@@ -37,5 +37,3 @@ function About() {
     </div>
   )
 }
-
-export default About;

@@ -5,7 +5,7 @@
   - [x] make likes update while in level
   - [x] make first bubble render automatically
   - [x] change format of levels to match level 1
-  - [ ] award badges when level completed
+  - [x] award badges when level completed
   - [ ] upload about us photo
 
 ## Styling
