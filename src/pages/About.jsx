@@ -20,7 +20,7 @@ export default function About() {
           <AboutCard
           name="Ray"
           picture={example}
-          blurb="Hello, my name is Ray, and I figured out all of the coding for this project. In my free time, I enjoy ceramics, ultimate frisbee, and engineering cool tools. [Ray, please change this if you want]">
+          blurb="Hello, I'm Ray, and I was tasked with coding the game's functionality. In my free time, I enjoy ceramics, baking, playing drums, and reading random wikipedia articles">
           </AboutCard>
         </div>
       
