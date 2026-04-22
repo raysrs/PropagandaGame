@@ -19,7 +19,7 @@ export default function Badges() {
 
   let i = 0
   let badgeList = []
-  while(i < levels.length-1){
+  while(i < levels.length-2){
     badgeList.push(
       <BadgeandBlurb
         badgename={levels[i+1].title}
@@ -31,7 +31,7 @@ export default function Badges() {
   }
 
   return (
-    <div className="h-dvh pb-8 bg-sky-400 font-serif">
+    <div className="h-lvh pb-8 bg-sky-400 font-serif">
       <div className="bg-amber-400 text-bold text-center h-[50px] text-2xl font-bold py-3">
           My Badges
       </div>
