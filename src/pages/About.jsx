@@ -3,7 +3,7 @@ import zoe from "../assets/zoe.jpg";
 import example from "../assets/example.jpg";
 import { Link } from "react-router-dom";
 
-function About() {
+export default function About() {
   return (
     <div className="bg-sky-400 p-4 h-dvh font-serif">
       <div className="text-4xl font-bold text-center rounded-lg bg-amber-400">About Us!</div>
@@ -20,7 +20,7 @@ function About() {
           <AboutCard
           name="Ray"
           picture={example}
-          blurb="Hello, my name is Ray, and I figured out all of the coding for this project. In my free time, I enjoy ceramics, ultimate frisbee, and engineering cool tools. [Ray, please change this if you want]">
+          blurb="Hello, I'm Ray, and I was tasked with coding the game's functionality. In my free time, I enjoy ceramics, baking, playing drums, and reading random wikipedia articles">
           </AboutCard>
         </div>
       
@@ -37,5 +37,3 @@ function About() {
     </div>
   )
 }
-
-export default About;

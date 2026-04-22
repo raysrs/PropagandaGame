@@ -1,86 +1,70 @@
-import { useState, useRef } from "react";
-import SpeechBubble from "./SpeechBubble";
-import Choice from "./Choice";
-import NextButton from "./NextButton";
+import { useContext } from 'react';
+import { UserContext, UserDispatchContext } from '../UserContext';
+import { Sidebar, NextButton, SpeechBubble, Question } from "./"
 
-function Level({props, handleLevelCompletion}) {
-  let remainingLines = useRef(props.lines);
-  const [renderedLines, setRenderedLines] = useState([]);
-  const [stats, setStats] = useState({likes:0, choices:[], correctAnswers:0});
+function Level({data}){
+  const user = useContext(UserContext);
+  const userDispatch = useContext(UserDispatchContext)
 
-  const pushLine = (l) => setRenderedLines(renderedLines.concat([l]));
+  const lines = data.lines.map((lineData, lineNum) => toComponent(lineData, lineNum))
 
-  function next() {
-    if (remainingLines.current.length == 0){
-      handleLevelCompletion(stats);
+  function toComponent(lineData, lineNum){
+    if(typeof lineData === 'string'){
+      //return speech bubble component if line datatype is string
+      let speaker = lineData.slice(0, lineData.indexOf(":"));
+      let text = lineData.slice(lineData.indexOf(":") + 1);
+      return(
+        <SpeechBubble speaker={speaker} key={lineNum}> {text} </SpeechBubble>
+      );
     } else {
-      nextLine();
+      //return question component if datatype is not string
+      return(
+        <Question props={lineData} key={lineNum} />
+      )
     }
   }
 
-  function nextLine() { 
-    const line = remainingLines.current.shift();
-    let lineType = line.slice(0, line.indexOf(":"));
-    let lineContent = line.slice(line.indexOf(":") + 1);
+  function next(){
+    //increments line number if more lines remain or level had questions, otherwise moves on to next level
+    if((user.lineNum < lines.length-1) || (data.lines.map((lineData) => typeof lineData).includes('object'))){
+      userDispatch({type:"nextLine"})
 
-    switch (lineType) {
-      case "Poppy": case "Patricia":
-        //render speech bubble
-        pushLine(
-          <SpeechBubble type={lineType}> {lineContent} </SpeechBubble>
-        )
-        break;
-
-      case "prompt":
-        //adds prompting speechbubble and choice line
-        pushLine(
-          <SpeechBubble type="Poppy"> {lineContent} </SpeechBubble>
-        )
-        const options = remainingLines.current.shift();
-        pushLine(
-          <Choice options={options} handleChoice={handleChoice} />
-        )
-        break;
-    }
-  }
-
-  function handleChoice(choice) {
-    const isCorrect = (choice == props.key[stats.choices.length]);
-    const i = isCorrect ? 1 : 0;
-
-    //if correct reward 90-110 likes, if incorrect reward 1-10 likes
-    const likesGained = Math.floor(isCorrect ? (Math.random() * 20 + 90) : (Math.random() * 10 + 1));
-    
-    // change user statistics accordingly
-    setStats({
-      likes: stats.likes + likesGained,
-      choices: stats.choices.concat(choice),
-      correctAnswers: stats.correctAnswers + i
-    });
-
-    //get 1st reaction if correct and 2nd if incorrect
-    const responses = remainingLines.current.shift()
-
-    // render poppy's response
-    pushLine(
-      <SpeechBubble type="Poppy"> {responses.at(1-i)} </SpeechBubble>
-    );
-  }
+      //update user's prompt status if next line is question
+      if(typeof data.lines[user.lineNum+1] === 'object'){
+        userDispatch({type:"userPrompted"})
+      }
+    } else {
+      userDispatch({type:"nextLevel"})
+    };
+  };
 
   return(
-    // maps each line to a list item, which is displayed
-    // line id shennanigans are to help react differentiate the lines
-    <div>
-      <ul className="flex flex-col">
-        {renderedLines.map((line, index) => 
-          <li key={index}>
-            {line}
-          </li>
-        )}
-      </ul>
-      {(!Array.isArray(remainingLines.current[0])) && <NextButton handleClick={next} />}
+    <div className="flex h-dvh w-dvw">
+      {/* sidebar */}
+      <div className="flex-none">
+        <Sidebar/>
+      </div>
+      <div className="flex-auto flex flex-col">
+        {/* level header */}
+        <h1 className="py-1 px-4 bg-pink-400 border-b-2 border-pink-600 text-2xl font-serif">
+          {data.title}
+        </h1>
+        {/* dialogue: maps lines to html list components, which are rendered */}
+        <ul className="flex-auto py-2 flex flex-col-reverse overflow-auto">
+          {
+          lines.slice(0,user.lineNum+1).map((line, i) => 
+            <li key={i}>
+              {line}
+            </li>
+          ).reverse()}
+        </ul>
+        {
+          /* next line button, not rendered if awaiting question response or last line of last level*/
+          (!user.isPrompted && (user.lineNum < lines.length-1 || user.levelNum < 6)) && <NextButton handleClick={next} />
+        }
+      </div>
     </div>
-  );
+  )
 }
 
 export default Level;

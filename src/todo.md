@@ -1,18 +1,20 @@
 # Ray's to do list!
 
-## Important
-  - [ ] make level remember prompts after choice made
-  - [ ] change format of levels to match level 1
-  - [ ] make user progress a context rather than a state
-    - [ ] make likes update while in level
-    - [ ] award badges when level completed
-  - [ ] make first bubble render automatically
+## Coding
+  - [x] make level remember prompts after choice made
+  - [x] make likes update while in level
+  - [x] make first bubble render automatically
+  - [x] change format of levels to match level 1
+  - [x] award badges when level completed
+  - [x] store badge data in levels.json
+  - [x] make end of level link to about us or smth
   - [ ] upload about us photo
 
 ## Styling
-  - [ ] remove white bar from home page & make background the right size
+  - [x] remove white bar from home page & make background the right size
+  - [x] reconsider black borders
+  - [x] make game scroll
   - [ ] css button class? consider
   - [ ] consistant rounding
-  - [ ] reconsider black borders
   - [ ] make speech bubbles work on different screen sizes?
   - [ ] dark mode?
