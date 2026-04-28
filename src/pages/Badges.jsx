@@ -4,7 +4,7 @@ import { useContext } from "react";
 import levels from "../assets/levels.json";
 import badgeIcons from "../assets/badgeIcons";
 
-import { UserContext } from "../components/UserContext";
+import { UserContext } from "../components/game/UserContext";
 import { BadgeandBlurb, BlankBadgeandBlurb } from "../components/BadgeandBlurb";
 
 export default function Badges() {

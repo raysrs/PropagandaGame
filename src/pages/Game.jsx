@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import levels from "../assets/levels.json";
 
-import { UserContext } from '../components/UserContext';
+import { UserContext } from '../components/game/UserContext';
 import { Level, Results} from "../components/game"
 
 export default function Game(){
