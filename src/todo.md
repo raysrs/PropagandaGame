@@ -8,6 +8,7 @@
   - [x] award badges when level completed
   - [x] store badge data in levels.json
   - [x] make end of level link to about us or smth
+  - [ ] fix infinate point glitch - make questions remember val even when unrendered
   - [ ] upload about us photo
 
 ## Styling

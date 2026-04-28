@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { UserProvider } from "./components/UserContext";
+import { UserProvider } from "./components/game/UserContext";
 import { About, Badges, Game, Home } from "./pages"
 
 export default function App() {
