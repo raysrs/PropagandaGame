@@ -10,7 +10,7 @@ export default function Home() {
         </div>
         <div className='py-4 text-center bg-sky-400'>
           <h1 className='inline-block py-2 max-w-md text-4xl font-bold bg-amber-400'>
-            Welcome to PropagandaGame!
+            Welcome to BeatBorscht!
           </h1>
         </div>
         <div className='py-4 text-center bg-sky-400'>

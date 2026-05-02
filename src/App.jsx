@@ -4,7 +4,7 @@ import { About, Badges, Game, Home } from "./pages"
 
 export default function App() {
   return(
-    <BrowserRouter basename='PropagandaGame'>
+    <BrowserRouter basename='BeatBorscht'>
       <Routes>
         <Route element={<UserProvider><Outlet /></UserProvider>}>
           <Route index element={<Home />} />        
